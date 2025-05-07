@@ -1,56 +1,314 @@
-*{
-    box-sizing: border-box;
-}
-body{
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-}
-form{
-    width: 50%;
-    margin: auto;
-    padding: 19px;
-    text-align: center;
-    background-color: #bac8dd;
-    border-radius: 15px;
-    box-shadow: 2px 2px 10px hsl(249, 73%, 17%);
-}
-h1{
-    color: #0f203a;
-}
-#temp-box{
-    width: 50%;
-    margin: auto;
-    padding: 10px;
-    text-align: center;
-    font-size: 25px;
-    font-weight: bold;
-    border-radius: 10px;
-    background-color: #eceaf1;
-    border: 1px solid #0f203a;
-    cursor: pointer;
-}
-button{
-    width: 60%;
-    padding: 10px;
-    margin: auto;
-    background-color: #0f203a;
-    color: azure;
-    border: none;
-    border-radius: 10px;
-    cursor: pointer;
-}
-button:hover{
-    background-color: #596c88;
-}
-button:active{
-    background-color: #0f203a;
-}
-
-label{
-    font-size: 1.6em;
-    font-weight: bold;
-}
-#result{
-    font-size: 1.5em;
-    font-weight: bold;
-    color: #0d0425;
-}
+* {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+        
+        .container {
+            width: 100%;
+            max-width: 450px;
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+        
+        .container:hover {
+            transform: translateY(-5px);
+        }
+        
+        .header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        
+        .header i {
+            font-size: 40px;
+            color: #3a86ff;
+            margin-bottom: 15px;
+        }
+        
+        .header h1 {
+            color: #333;
+            font-size: 28px;
+            margin-bottom: 5px;
+        }
+        
+        .header p {
+            color: #666;
+            font-size: 16px;
+        }
+        
+        .input-group {
+            margin-bottom: 25px;
+        }
+        
+        .input-group label {
+            display: block;
+            margin-bottom: 10px;
+            color: #555;
+            font-weight: 500;
+        }
+        
+        .input-field {
+            position: relative;
+        }
+        
+        .input-field input {
+            width: 100%;
+            padding: 15px;
+            border: 2px solid #ddd;
+            border-radius: 10px;
+            font-size: 18px;
+            outline: none;
+            transition: all 0.3s ease;
+        }
+        
+        .input-field input:focus {
+            border-color: #3a86ff;
+            box-shadow: 0 0 0 3px rgba(58, 134, 255, 0.2);
+        }
+        
+        .input-field span {
+            position: absolute;
+            right: 15px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #777;
+            font-size: 18px;
+        }
+        
+        .radio-group {
+            margin-bottom: 25px;
+        }
+        
+        .radio-group label {
+            display: block;
+            margin-bottom: 15px;
+            color: #555;
+            font-weight: 500;
+        }
+        
+        .radio-option {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+        
+        .radio-option input {
+            margin-right: 10px;
+            width: 18px;
+            height: 18px;
+            accent-color: #3a86ff;
+        }
+        
+        .radio-option span {
+            font-size: 16px;
+        }
+        
+        .radio-option span.celsius {
+            color: #3a86ff;
+            font-weight: 600;
+        }
+        
+        .radio-option span.fahrenheit {
+            color: #ff5a5f;
+            font-weight: 600;
+        }
+        
+        .btn {
+            width: 100%;
+            padding: 15px;
+            border: none;
+            border-radius: 10px;
+            background: linear-gradient(to right, #3a86ff, #2667cc);
+            color: white;
+            font-size: 18px;
+            font-weight: 600;
+            cursor: pointer;
+            margin-bottom: 15px;
+            transition: all 0.3s ease;
+        }
+        
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .btn i {
+            margin-right: 10px;
+        }
+        
+        .switch-btn {
+            width: 100%;
+            padding: 12px;
+            border: none;
+            border-radius: 10px;
+            background: #f1f1f1;
+            color: #555;
+            font-size: 16px;
+            font-weight: 500;
+            cursor: pointer;
+            margin-bottom: 25px;
+            transition: all 0.3s ease;
+        }
+        
+        .switch-btn:hover {
+            background: #e0e0e0;
+        }
+        
+        .result {
+            background: #f8f9fa;
+            border-radius: 10px;
+            padding: 20px;
+            margin-bottom: 30px;
+            border: 1px solid #eee;
+            text-align: center;
+        }
+        
+        .result p {
+            color: #777;
+            font-size: 14px;
+            margin-bottom: 5px;
+        }
+        
+        .result-value {
+            font-size: 32px;
+            font-weight: 700;
+            color: #333;
+            margin-bottom: 10px;
+        }
+        
+        .result-formula {
+            color: #666;
+            font-size: 14px;
+            font-family: monospace;
+        }
+        
+        .history {
+            margin-top: 30px;
+        }
+        
+        .history-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+        
+        .history-header h3 {
+            color: #555;
+            font-size: 18px;
+        }
+        
+        .history-header i {
+            color: #3a86ff;
+            margin-right: 8px;
+        }
+        
+        .clear-btn {
+            color: #ff5a5f;
+            background: none;
+            border: none;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+        
+        .clear-btn:hover {
+            color: #e53935;
+        }
+        
+        .history-list {
+            max-height: 200px;
+            overflow-y: auto;
+            padding-right: 5px;
+        }
+        
+        .history-item {
+            background: #f8f9fa;
+            border-radius: 8px;
+            padding: 12px 15px;
+            margin-bottom: 10px;
+            border: 1px solid #eee;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+        
+        .history-item:hover {
+            background: #e9f0ff;
+            border-color: #d0e0ff;
+        }
+        
+        .history-item .conversion {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 5px;
+        }
+        
+        .history-item .original {
+            font-weight: 600;
+        }
+        
+        .history-item .arrow {
+            margin: 0 8px;
+            color: #999;
+        }
+        
+        .history-item .converted {
+            font-weight: 600;
+            color: #3a86ff;
+        }
+        
+        .history-item .time {
+            font-size: 12px;
+            color: #999;
+        }
+        
+        .history-item .formula {
+            font-size: 12px;
+            color: #777;
+            font-family: monospace;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+        
+        .empty-history {
+            text-align: center;
+            color: #999;
+            padding: 20px 0;
+            font-style: italic;
+        }
+        
+        @media (max-width: 500px) {
+            .container {
+                padding: 20px;
+            }
+            
+            .header h1 {
+                font-size: 24px;
+            }
+            
+            .input-field input {
+                padding: 12px;
+                font-size: 16px;
+            }
+            
+            .btn {
+                padding: 12px;
+                font-size: 16px;
+            }
+        }
